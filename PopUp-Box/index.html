@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PopUp Box</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+        }
+        button{
+            padding: 10px 30px;
+            cursor: pointer;
+        }
+        .click{
+            position: absolute;
+            top: 40%;
+            left: 45%;
+        }
+        .firstPopUp{
+            width: 30%;
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            display: none;
+            border-radius: 20px;
+            box-shadow: 5px 5px 5px 3px rgb(0 0 0 / 20%);
+            text-align: center;
+        }
+        .firstPopUp p {
+            font-size: 25px;
+        }
+        .btn{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .delete{
+            background-color: rgb(245, 94, 94);
+            color: white;
+            font-size: large;
+            border: none;
+        }
+        .cancel{
+            background-color: rgb(97, 220, 97);
+            color: white;
+            font-size: large;
+            border: none;
+        }
+        .confirm{
+            width: 30%;
+            text-align: center;
+            padding: 0 10px 10px;
+            box-shadow: 5px 5px 5px 3px rgba(83, 89, 200, 0.2);
+            display: none;
+        }
+        .confirm p:first-child{
+            display: flex;
+            justify-content: space-between;
+        }
+        .close{
+            cursor: pointer;
+        }
+        .firstPopUp,.confirm{
+            position: absolute;
+            top: 30%;
+            left: 40%;
+        }
+    </style>    
+</head>
+<body>
+    <button class="click">Click Me</button>
+
+    <div class="firstPopUp">
+        <i class="fa-regular fa-circle-exclamation" style="font-size: 70px; color: rgb(238, 203, 77);"></i>
+        <h1>Your account will be deleted <span>Permanently!</span></h1>
+        <p>Are you sure to proceed</p>
+        <div class="btn">
+            <button class="cancel">Cancel Process</button>
+            <button class="delete">Delete Account</button>
+        </div>
+    </div>
+
+    <div class="confirm">
+        <p>Atom <i class="fa-regular fa-x close"></i></p>
+        <p>Your account deleted successfully</p>
+        <button class="ok close">OK</button>
+    </div>
+
+    <script>
+        let clickBtn = document.querySelector('.click');
+        let firstPopUp = document.querySelector('.firstPopUp')
+        let cancelBtn = document.querySelector('.cancel')
+        let deleteBtn = document.querySelector('.delete')
+        let confirm = document.querySelector('.confirm')
+        let closeBtns = document.querySelectorAll('.close')
+
+        clickBtn.addEventListener('click',()=>{
+            clickBtn.style.display = 'none';
+            firstPopUp.style.display = 'block';
+        })
+
+        cancelBtn.addEventListener('click',()=>{
+            firstPopUp.style.display = 'none';
+            clickBtn.style.display = 'block';
+        })
+
+        deleteBtn.addEventListener('click',()=>{
+            confirm.style.display = 'block';
+            firstPopUp.style.display = 'none';
+        })
+        
+        closeBtns.forEach((btn)=>{
+            btn.addEventListener('click',()=>{
+                confirm.style.display = 'none';
+                clickBtn.textContent = 'Account Deleted';
+                clickBtn.style.display = 'block';
+            })
+        })
+
+    </script>
+</body>
+</html>

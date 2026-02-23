@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Notification Button</title>
+
+  <!-- Correct Font Awesome CDN -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    body{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      background-color: antiquewhite;
+    }
+
+    .notification-icon{
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .count{
+      background-color: red;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    button{
+      padding: 10px 20px;
+      border: none;
+      background-color: #4c8bf5;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover{
+      background-color: #346bd1;
+    }
+  </style>
+</head>
+<body>
+    <div class="notification-icon">
+        <i class="fa-solid fa-message fa-sm" style="font-size:100px; color: rgb(116, 192, 252);"></i>
+        <div class="count">0</div>
+    </div>
+    <button>Push Notify</button>
+
+    <script>
+        let countDiv = document.querySelector('.count')
+        let btn = document.querySelector('button')
+        let count = 0
+        btn.addEventListener('click',()=>{
+            count++
+            countDiv.textContent = count
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="grandparent" class="container">
+        <div id="parent1" class="box">
+            <p id="child1" class="text">Hello</p>
+            <p id="child2" class="text">World</p>
+            <span id="child3">!</span>
+        </div>
+        <div id="parent2" class="box">
+            <ul id="list">
+                <li class="item active">One</li>
+                <li class="item">Two</li>
+                <li class="item active">Three</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Task: Get the parent of #child1 , then get the grandparent from there.
+        // let child1 = document.querySelector('#child1')
+        // let parent = child1.parentElement
+        // let grandparent = parent.parentElement
+        // console.log("grandparent of #child1 is: ",grandparent)
+
+        // Task: From the first <li> , find the nearest ancestor with class container.
+        // let ul = document.querySelector('ul')
+        // let firstLi = ul.firstElementChild
+        // let closestAncestor = firstLi.closest('.container')
+        // console.log(closestAncestor)
+
+        // Task: Get children of #parent1 . What’s the difference?  
+        // let childrenNode = document.querySelector('#parent1').childNodes
+        // let childrenELement = document.querySelector('#parent1').children
+        // console.log(childrenNode)
+        // console.log(childrenELement)
+
+        // Task: Get first and last element child of #parent1.
+        // let parent1 = document.querySelector('#parent1')
+        // console.log(parent1.firstElementChild)
+        // console.log(parent1.lastElementChild)
+        // console.log(parent1.firstChild)
+        // console.log(parent1.lastChild)
+
+        // Task: Starting from #child2 , get previous and next sibling elements.
+        // let child2 = document.querySelector('#child2')
+        // console.log(child2.previousElementSibling)
+        // console.log(child2.nextElementSibling)
+        // console.log(child2.previousSibling)
+        // console.log(child2.next,Sibling)
+
+        // Task: Write code to collect all ancestors of the first <li> until document.
+        // function getAllAncestors() {
+        //     let firstLi = document.querySelector('li')
+        //     const ancestor = []
+        //     let parent = firstLi.parentElement
+        //     while (parent) {
+        //         ancestor.push(parent)
+        //         parent = parent.parentElement
+        //     }
+        //     console.log(ancestor)
+        // }
+        // getAllAncestors()
+
+
+
+        // Task: Check if #grandparent contains the first <li> . Check if #parent1 contains it.
+        // const gp = document.getElementById('grandparent');
+        // const p1 = document.getElementById('parent1');
+        // const li = document.querySelector('li');
+        // gp.contains(li); // true — li is a descendant
+        // p1.contains(li); // false — li is inside parent2, not parent1
+
+
+        // Task: Get all .active items but ONLY inside #parent2
+        // let p2 = document.querySelector('#parent2')
+        // p2.querySelectorAll('.active')
+
+        // // vs document-level which searches everywhere
+        // document.querySelectorAll('.active'); // same here, but scope matters in bigger D
+
+
+        // Task: From #child2 , walk up ancestors until you find one with class container . Do it   WITHOUT closest().
+        // function findAncestorByClass(el, className) {
+        //     let current = el.parentElement;
+        //     while (current) {
+        //         if (current.classList.contains(className)) return current;
+        //         current = current.parentElement;
+        //     }
+        //     return null;
+        // }
+        // let ch2 = document.querySelector('#child2')
+        // console.log(findAncestorByClass(ch2,"container"))
+
+        // Task: Get ALL siblings of #child2(not including itself).
+        // const c2 = document.getElementById('child2');
+        // const siblings = [...c2.parentElement.children].filter(el => el !== c2);
+        // console.log(siblings)
+
+    </script>
+</body>
+
+</html>
