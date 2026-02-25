@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        body {
+            background-color: black;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .img-container {
+            background-color: aliceblue;
+            width: 60%;
+            height: 40%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .img-container img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* object-fit: cover; */
+            display: none;
+        }
+
+        .img-container img.active {
+            display: block;
+        }
+
+        .slide-container {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            font-size: larger;
+        }
+        .slider{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="img-container">
+        <img src="https://picsum.photos/800/400?random=1" alt="image-1" class="active" />
+        <img src="https://picsum.photos/800/400?random=2" alt="image-2" />
+        <img src="https://picsum.photos/800/400?random=3" alt="image-3" />
+        <img src="https://picsum.photos/800/400?random=4" alt="image-4" />
+
+        <div class="slide-container">
+            <div class="slider">o</div>
+            <div class="slider">o</div>
+            <div class="slider">o</div>
+            <div class="slider">o</div>
+        </div>
+    </div>
+
+    <script>
+        let imgs = document.querySelectorAll('.img-container img')
+        // console.log(imgs.length)
+
+        let slider = document.querySelectorAll('.slider')
+        let active = document.querySelector('.active')
+
+        slider.forEach((slide, index) => {
+            slide.addEventListener('click', () => {
+                // remove active from all images
+                imgs.forEach(img => img.classList.remove('active'));
+
+                // add active to clicked image
+                imgs[index].classList.add('active');
+            })
+        })
+
+
+    </script>
+</body>
+
+</html>
