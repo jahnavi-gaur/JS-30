@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Password Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(4, 4, 110);
+            display: flex;
+            align-items: center;
+            margin-right: 200px;
+        }
+
+        .container {
+            padding-left: 200px;
+            display: flex;
+            gap: 40px;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        h1 {
+            color: white;
+            font-size: 50px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 span {
+            color: green;
+        }
+
+        .container input {
+            height: 70px;
+            border-radius: 10px;
+            border: none;
+            padding: 5px;
+            font-size: 20px;
+        }
+
+        .btn {
+            height: 50px;
+            background-color: green;
+            border: none;
+            color: white;
+            margin: 20px 0 0 0;
+            cursor: pointer;
+        }
+        .copy-btn{
+            height: 50px;
+            background-color: green;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Generate a <span>Random Password</span></h1>
+        <input type="text" class="inp" />
+        <button class="btn">Generate Password</button>
+        <button class="copy-btn">Copy</button>
+    </div>
+
+    <script>
+        const btn = document.querySelector('.btn')
+        const inputBox = document.querySelector('.inp')
+        let str = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ$@%&"
+
+        function sortRandom(str) {
+            let arr = str.split("")
+            // console.log(arr)
+            return arr.sort(() => 0.5 - Math.random()).join('')
+        }
+
+        btn.addEventListener('click', () => {
+            let randomStr = sortRandom(str)
+            console.log(randomStr)
+            let passw = ""
+            for (let i = 0; i < 10; i++) {
+                passw += randomStr[i]
+            }
+            inputBox.value = passw
+            console.log(inputBox.value)
+        })
+
+        const copyBtn = document.querySelector('.copy-btn');
+
+        copyBtn.addEventListener('click', async () => {
+            if (!inputBox.value) return;
+
+            try {
+                await navigator.clipboard.writeText(inputBox.value);
+                alert("Password copied to clipboard!");
+            } catch (err) {
+                console.error("Failed to copy: ", err);
+            }
+        });
+    </script>
+</body>
+
+</html>
