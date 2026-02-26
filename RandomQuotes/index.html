@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote of the day</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(143, 194, 244);
+        }
+        .container{
+            padding: 10px;
+            margin: 10px;
+            background-color: white;
+            max-width: 40rem;
+            min-width: 300px;
+            min-height: 40%;
+            border: 2px solid black;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .container h1{
+            font-size: 60px;
+        }
+        .quote{
+            font-size: 25px;
+        }
+        .author{
+            align-self: flex-end;
+            padding: 0 40px 0 0;
+        }
+        .btn{
+            padding: 10px 20px;
+            border: none;
+            background-color: rgb(143, 194, 244);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quote of the day</h1>
+        <p class="quote">Your heart is the size of an ocean. Go find yourself in its hidden depths.</p>
+        <p class="author">Rumi</p>
+        <button class="btn">New Quote</button>
+    </div>
+
+    <script src="script.js">  
+    </script>
+</body>
+</html>
