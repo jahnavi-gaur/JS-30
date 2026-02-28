@@ -109,11 +109,10 @@ function customMap(callback,arr){
 function customForEach(callback,arr){
     for(let i = 0; i < arr.length; i++){
         let ele = callback(arr[i],i,arr);
-        arr[i] = ele 
+        console.log(ele) 
     }
-    return arr
 }
-// console.log(customForEach(callback,arr))
+customForEach(callback,arr)
 
 
 function flat(arr){

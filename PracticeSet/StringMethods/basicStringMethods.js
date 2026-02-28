@@ -1,9 +1,56 @@
 let str = "jahnavigaur"
 
 //split(separator)
+function split(str,separator){
+    let result = []
+    let current = ""
+
+    // Special case: empty separator
+    if (separator === "") {
+        for (let char of str) {
+            result.push(char)
+        }
+        return result
+    }
+
+    for (let i = 0; i < str.length; i++) {
+
+        // Check if substring matches separator
+        if (str.slice(i, i + separator.length) === separator) {
+            result.push(current)
+            current = ""
+            i += separator.length - 1
+        } else {
+            current += str[i]
+        }
+    }
+
+    result.push(current) // last part
+    return result
+}
+console.log(split("apple,banana,mango",","))
 
 
 //replaceAll()
+function customReplaceAll(str, search, replaceValue) {
+    if (search === "") return str;
+
+    let result = "";
+    let i = 0;
+
+    while (i < str.length) {
+        if (str.slice(i, i + search.length) === search) {
+            result += replaceValue;
+            i += search.length;
+        } else {
+            result += str[i];
+            i++;
+        }
+    }
+
+    return result;
+}
+// console.log(replace("Please visit Microsoft and Microsoft!","Microsoft","Hlo"))
 
 
 //replace()
@@ -15,17 +62,66 @@ let str = "jahnavigaur"
 // let text = "Please visit Microsoft and Microsoft!";
 // let newText = text.replace("Microsoft", "W3Schools");
 // newText = Please visit W3Schools and Microsoft!
+function replace(str, search, replaceValue){
+    if (search === "") return str;
+
+    let index = str.indexOf(search);
+
+    if (index === -1) return str;
+
+    return (
+        str.slice(0, index) +
+        replaceValue +
+        str.slice(index + search.length)
+    );
+}
+// console.log(replace("Please visit Microsoft and Microsoft!","Microsoft","Hlo"))
 
 
 
 
 //repeat()
+function repeat(str,time){
+    let newStr = ""
+    while(time){
+        newStr += str 
+        time--
+    }
+    return newStr
+}
+// console.log(repeat("jahnavi",5))
 
 
 //padEnd()
+function padEnd(str,totalLen,sep){
+    let curLength = str.length 
+    let newStr = ""
+    if(curLength > totalLen){
+        return str 
+    }
+    while(newStr.length < totalLen-str.length){
+        newStr += sep
+    }
+    newStr = str + newStr
+    return newStr
+}
+// console.log(padEnd("5",4,0))
 
 
-//padStart()
+//padStart(totalLen,what to insert)
+function padStart(str,totalLen,sep){
+    let curLength = str.length 
+    let newStr = ""
+    if(curLength > totalLen){
+        return str 
+    }
+    while(newStr.length < totalLen-str.length){
+        newStr += sep
+    }
+    newStr+=str 
+    return newStr
+}
+// console.log(padStart("5",4,0))
 
 
 //trimEnd()
@@ -80,7 +176,7 @@ function trim(str){
     }
     return newStr
 }
-console.log(trim("     jahnavi gaur 123.  "))
+// console.log(trim("     jahnavi gaur 123.  "))
 
 
 //toUpperCase()

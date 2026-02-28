@@ -13,7 +13,6 @@ const winPatterns = [
     [2,4,6]
 ]
 
-const options = ["", "", "", "", "", "", "", "", ""]
 let turnO = true //playerX, playerO
 let count = 0
 
